@@ -120,17 +120,11 @@ void afficher_paralphabetordre(){
         }  }  }
         printf("la liste de tous les joueurs  par ordre alphabétique (Nom):\n");
         for(i=0;i<j_max;i++){
-             printf("\n nom(nom,prenom) ");
-        
+        printf("\n nom(nom,prenom) :%s",j1[j_max].full_name);
         printf("\n  son poste :%s",j1[j_max].poste);
-        
-        printf("IEntrer un numero de j: ");
-      
-        printf("\nbuts: ");
-     
-
+        printf("IEntrer un numero de j:%d ",j1[j_max].num_maillot);
+        printf("\n%d buts",j1[j_max].buts);
         }
-        
         }
 
      
