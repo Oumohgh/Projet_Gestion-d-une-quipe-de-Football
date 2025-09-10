@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include<string.h>
 
 int j_max;
 struct joueur
@@ -11,11 +12,10 @@ struct joueur
     char poste[4];
     char statut[2];
 };
-struct joueur j1 [22] ;
 
 void ajouterUnJoueur();
 void ajouterPlusieurs();
-void afficherTous();
+void afficher_ordre();
 void afficherParNom();
 void afficherParAge();
 void afficherParPoste();
@@ -66,25 +66,71 @@ int main() {
     return 0;
 }
 
+void chercherParId(){
+    int rech_id;
+    int x;
+    struct joueur j1 [j_max];
+    printf("veuillez entrer Joueur Id: ");
+                   scanf("%i", &rech_id);
+                   for(x=1;x<=j_max;x++)
+                    {
+                      if(rech_id == j1[x].id)
+                       {
+                        printf("Joueur %s, number:%s ,son poste:%s", j1[x].full_name, j1[x].num_maillot, j1[x].poste);
+                       break;
+                    }  
+                    }
+               }
+
+
 
 void ajouterUnJoueur(){ 
     int id =0;
     struct joueur j1 [j_max];
+     j1[j_max].id=++id;
     printf("Ajouter un joueur:");
-        for(int i=0;i<23;i++){
+        
+         
         printf("\nEntrer le nome ");
-        scanf("%s",j1[].full_name);
+        scanf("%s",j1[j_max].full_name);
         printf("\n  son poste :");
-        scanf("%s",j1[22].poste);
+        scanf("%s",j1[j_max].poste);
         printf("IEntrer un numero de j: ");
-        scanf("%d",&j1[22].num_maillot);
+        scanf("%d",&j1[j_max].num_maillot);
         printf("\nCombien de buts: ");
-        scanf("%d",&j1[22].buts);
-    id++;
+        scanf("%d",&j1[j_max].buts);    
+    }
+void ajouterPlusieurs(){
+        printf("ajouter Plusieurs joueur:\n");
+     struct joueur j1 [j_max];
+    for(int i=0;i<j_max;i++){
+        ajouterUnJoueur ();
     }
 }
-void afficherTous(){
-    printf("Ajouter un joueur:");
-    for(int i=0)
+void afficher_paralphabetordre(){
+     struct joueur j1 [j_max];
+     int j,i;
+     char x;
+     for(i=0;i<j_max-1;i++){
+        for(j=1;j<j_max;j++){
+            if (strcmp(j1[i].full_name,j1[j].full_name)>0){
+            strcpy(x,j1[i].full_name);
+            strcpy(j1[i].full_name,j1[j].full_name);
+            strcpy(j1[j].full_name,x);
+        }  }  }
+        printf("la liste de tous les joueurs  par ordre alphabétique (Nom):\n");
+        for(i=0;i<j_max;i++){
+             printf("\n nom(nom,prenom) ");
+        
+        printf("\n  son poste :%s",j1[j_max].poste);
+        
+        printf("IEntrer un numero de j: ");
+      
+        printf("\nbuts: ");
+     
 
-}
+        }
+        
+        }
+
+     
